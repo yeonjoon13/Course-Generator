@@ -1,0 +1,27 @@
+{% extends "Learner/base.html" %}
+{%block content%}
+
+<form method="POST" action="{% url 'Specified' %}">
+    {% csrf_token %}
+
+    <div class = "text">
+        <label>Please select a more specific topic:</label>
+        <input type="text" name = "specified" value={{specified}}>
+    </div>
+
+    <div id="selections">
+        {% for subtopic in list %}
+        <label> <input type="checkbox" name = "subtopics" value = {{subtopic}}> {{subtopic}} </label>
+        {% endfor %}
+    </div>
+
+    <br></br>
+
+    <center>
+        <button type="submit" class="btn btn-primary" name="submit button">Submit</button>
+    </center>
+
+
+</form>
+
+{%endblock content%}

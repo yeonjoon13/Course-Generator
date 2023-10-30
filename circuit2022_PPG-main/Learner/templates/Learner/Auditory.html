@@ -1,0 +1,17 @@
+{%  extends "Learner/base.html" %}
+{%block content%}
+
+  {%if searched %}
+    <h1> {{searched}} </h1>
+    <br/>
+    {% for Keyword in Keywords%}
+        {{Keyword}}}<br/>
+    {%endfor%}
+  {% else %}
+    <h1>No Result Found</h1>
+  {%endif%}
+
+{%endblock content%}
+
+
+

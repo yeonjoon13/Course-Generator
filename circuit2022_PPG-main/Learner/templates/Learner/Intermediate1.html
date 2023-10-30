@@ -1,0 +1,41 @@
+{% extends "Learner/base.html" %}
+{%block content%}
+
+<form method="POST" action="{% url 'Intermediate' %}">
+    {% csrf_token %}
+
+    <div class = "text">
+        <label>Preference:</label>
+        <input type="text" name = "preference" value={{preference}}>
+    </div>
+
+    <div id="selections">
+        <ul style="list-style-type:none;">
+            <li><input type="checkbox" onClick="toggle(this)" /> Check All<br/></li>
+        {% for scrape in list %}
+            <li><label> <input type="checkbox" class="check" name = "chunks" value = {{scrape.chunkID}}> {{scrape}} </label></li>
+        {% endfor %}
+        </ul>
+    </div>
+
+    <br></br>
+
+    <center>
+        <button type="submit" class="btn btn-primary" name="submit button">Submit</button>
+    </center>
+
+
+</form>
+
+<script>
+
+    function toggle(source) {
+        checkboxes = document.getElementsByName('chunks');
+        for (var i = 0, n = checkboxes.length; i < n; i++) {
+            checkboxes[i].checked = source.checked;
+        }
+    }
+
+</script>
+
+{%endblock content%}

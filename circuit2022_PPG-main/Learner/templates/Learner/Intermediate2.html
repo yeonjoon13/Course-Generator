@@ -1,0 +1,27 @@
+{% extends "Learner/base.html" %}
+{%block content%}
+
+<form method="POST" action="{% url 'Intermediate' %}">
+    {% csrf_token %}
+
+    <div class = "text">
+        <label>Preference:</label>
+        <input type="text" name = "preference" value={{preference}}>
+    </div>
+
+    <div id="selections">
+        {% for scrape in list %}
+            <label> <input type="checkbox" name = "videos" value = {{scrape.URL}}> {{scrape}} </label>
+        {% endfor %}
+    </div>
+
+    <br></br>
+
+    <center>
+        <button type="submit" class="btn btn-primary" name="submit button">Submit</button>
+    </center>
+
+
+</form>
+
+{%endblock content%}

@@ -1,0 +1,26 @@
+{%  extends "Learner/base.html" %}
+{%block content%}
+
+    {%if searched %}
+        <h1> {{searched}} </h1>
+        <br/>
+        {% for Keyword in Keywords%}
+            {{Keyword}} }- {{Keyword.URL}<br/>
+        {%endfor%}
+    {% else %}
+        <h1>No Result Found</h1>
+    {%endif%}
+ <div class = "d -grid gap-2 col-2 mx-auto">
+        <a href="{% url 'Precision Learning Auditory'%}" class="btn btn-outline-secondary btn-lg" style="width:450px" role="button">Auditory Learner</a>
+        <br></br>
+     
+        <a href="{% url 'Precision Learning Visual'%}" class="btn btn-outline-secondary btn-lg" style="width:450px" role="button">Visual Learner</a>
+        <br></br>
+
+        <a href="{% url 'Precision Learning Reading'%}" class="btn btn-outline-secondary btn-lg" style="width:450px" role="button">Reading Learner</a>
+</div>
+
+
+
+
+{%endblock content%}

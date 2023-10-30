@@ -1,0 +1,20 @@
+chunks:
+
+-
+    title: "Welcome to the sample course"
+    id: welcome
+    rules:     
+    -
+        if_after: end_week 3
+        if_before: 2038-01-01 13:00:00 -5
+        weight: 100
+
+    -
+        weight: 0
+
+    content: |
+        # Hi there!
+        Check out the [custom course](001-recap).
+        You can also go there using a
+        <a href="001-recap" role="button" class="btn btn-default">Bootstrap button</a>.
+        

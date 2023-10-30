@@ -1,0 +1,143 @@
+{% extends "Learner/base.html" %}
+{%block content%}
+<div class="home">
+  <h1>Precision Learning Home</h1>
+  <br></br>
+  <h4><b></b>Fill out the form </b></h4>
+
+</div>
+
+
+
+<form method="POST" action="{% url 'Precision Learning Home' %}">
+  {% csrf_token %}
+
+
+
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Name" name="name">
+  </div>
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Keywords" name="keyword">
+
+  </div>
+  <br></br>
+  
+  <div class="show-inline-block">
+    <!--
+    <div class="radio">
+     <label><input> type="radio" name="pages" valeu = "1-10"> 1-10</label>
+     <button class="btn btn-outline-primary">10-30</button>
+      <button class="btn btn-outline-primary">30+</button>
+    -->
+    <div class="radio">
+
+      <h5><b></b>Pages</b></h5>
+      <label>
+       <input type="radio" name="pages" value="1-10">1-10
+      </label>
+      <label><input type="radio" name="pages" value="10-30">10-30</label>
+      <label><input type="radio" name="pages" value="30+">30+</label>
+    </div>
+  </div>
+  <br></br>
+
+  <h5><b></b>Preferences</b></h5>
+  <div class="radio">
+    <label> <input type="radio" name="preference" value="Text"> Text</label>
+  </div>
+
+  <div class="radio">
+    <label><input type="radio" name="preference" value="Video"> Video</label>
+  </div>
+{{form}}
+  <br></br>
+
+
+
+  <center>
+    <button type="submit" class="btn btn-primary" onclick="this.classList.toggle('button--loading')">Submit</button>
+    <div class="loader">
+      <div class="loading">
+      </div>
+    </div>
+  </center>
+</form>
+
+<head>
+  <style>
+    .button {
+      position: relative;
+      padding: 8px 16px;
+      background: #009579;
+      border:none;
+      outline: none; 
+      border-radius: 2px;
+      cursor: pointer;
+    }
+
+    .button:active {
+      background:hsl(169, 100%, 29%)
+    }
+
+    .button__text{
+      font: bold 20px "Quicksand", san-serif;
+      color: white;
+       transition: all 0.2s;
+    }
+
+    .button--loading .button__text{
+      visibility: hidden;
+      opacity: 0;
+
+    }
+    .button--loading::after {
+      content: "";
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto; 
+      border :4px solid transparent;
+      border-top-color: #3d6fda;
+      border-radius: 50%;
+      animation: button-loading-spinner 1s ease infinite;
+    }
+
+    @keyframes button-loading-spinner {
+      from {
+        transform: rotate(0turn);
+      }
+
+    to {
+      transform: rotate(1turn);
+    }     
+  }
+  </style>
+</head>
+
+
+<script type="text/javascript">
+    function spinner() {
+        document.getElementsByClassName("loader")[0].style.display = "block";
+    }
+</script>
+
+{%endblock content%}
+
+
+
+
+
+
+<body>
+  <button type = "submit" class = "button" onclick="this.classList.toggle('button--loading')">
+      <span class = "button__text">Submit</span>
+
+
+  </button>
+</body>
+
